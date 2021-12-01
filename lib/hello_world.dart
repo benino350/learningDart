@@ -13,27 +13,30 @@ void myLittleMain() {
   
   int aufarbeit = 7;
   
-  print("Wie viel woleln wir Fahren");
+  
 
-
-
- int counter = 0;
-  while(counter <= 5){
-      print(counter);
-      counter = counter + 1;
-
-  }
 
   while(true){
+    print("Wie viel woleln wir Fahren");
     var line = stdin.readLineSync(encoding: utf8);
 
     if (line != null ){
-      flitzer.fahren(int.parse(line.trim()));
+      try{
+        int eingabeInteger = int.parse(line.trim());
+        if (eingabeInteger< 0){
+          break;
+        }
+        flitzer.fahren(eingabeInteger);
+      } catch (Exception){
+        print("Sie haben etwas ungültiges eingegeben versuchen sie es noch einmal");
+      }
+      
     }
-
-    
     flitzer.printGefahreneKilometer();
    }  
+
+
+   print ("danke für das Mitfahren bis bald");
 }
 
 
