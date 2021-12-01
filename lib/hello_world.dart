@@ -14,14 +14,26 @@ void myLittleMain() {
   int aufarbeit = 7;
   
   print("Wie viel woleln wir Fahren");
-  var line = stdin.readLineSync(encoding: utf8);
- 
-  for(int zaehler = 0; zaehler < aufarbeit; zaehler++){
-     flitzer.fahren(10);
+
+
+
+ int counter = 0;
+  while(counter <= 5){
+      print(counter);
+      counter = counter + 1;
+
   }
 
-  
-   chimesee.printGefahreneKilometer();
+  while(true){
+    var line = stdin.readLineSync(encoding: utf8);
+
+    if (line != null ){
+      flitzer.fahren(int.parse(line.trim()));
+    }
+
+    
+    flitzer.printGefahreneKilometer();
+   }  
 }
 
 
@@ -37,7 +49,7 @@ class Auto{
   }
   
   void printGefahreneKilometer(){
-    print(gefahreneKilometer.toString());
+    print( "Bisher GeFAHREN: " + gefahreneKilometer.toString() + " Kilometer");
   }
  
   
